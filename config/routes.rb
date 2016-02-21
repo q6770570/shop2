@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
+  get '/', to: 'home#index'
+
   resources :variants
 
   resources :products
+  
+  resources :products do
+    resources :variants, shallow: true
+    collection do
+      get :top
+    end
+    member do
+      post :buy
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
