@@ -1,4 +1,7 @@
 <%- model_class = Product -%>
+<%= content_for :title do %> 
+<!-- 这􏰄 index.html.erb 􏰅单􏱼􏲅􏲆􏰙 --> 
+<% end %>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
@@ -15,22 +18,7 @@
   </thead>
   <tbody>
     <% @products.each do |product| %>
-      <tr>
-        <td><%= link_to product.id, product_path(product) %></td>
-        <td><%= product.name %></td>
-        <td><%= product.pricel %></td>
-        <td><%= product.description %></td>
-        <td><%=l product.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_product_path(product), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      product_path(product),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-        </td>
-      </tr>
+      <%= render partial: "product", locals: { product: product } %>
     <% end %>
   </tbody>
 </table>

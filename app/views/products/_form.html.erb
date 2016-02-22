@@ -1,19 +1,7 @@
 <%= form_for @product, :html => { :class => "form-horizontal product" } do |f| %>
 
-  <% if @product.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-        <% @product.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
+  <%= render "errors" %>
+
 
   <div class="form-group">
     <%= f.label :name, :class => 'control-label col-lg-2' %>
