@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+    sleep 1
     @product = Product.new(product_params)
 
     respond_to do |format|

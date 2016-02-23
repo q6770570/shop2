@@ -7,6 +7,9 @@ gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 
+#cancancan
+gem 'cancancan', '~> 1.10'
+
 #ransack
 gem 'ransack'
 # Authentication
